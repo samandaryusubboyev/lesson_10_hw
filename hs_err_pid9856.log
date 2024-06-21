@@ -1,0 +1,247 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3825), pid=9856, tid=9456
+#
+# JRE version:  (17.0.11+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.11+1-b1207.24, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx2048m -Xms256m -Djdbc.classpath=C:\Program Files\JetBrains\PyCharm 2024.1.2\plugins\DatabaseTools\lib\jdbc-console.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Dfile.encoding=UTF-8 com.intellij.database.remote.RemoteJdbcServer org.postgresql.Driver
+
+Host: AMD Ryzen 5 3450U with Radeon Vega Mobile Gfx  , 8 cores, 5G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3672)
+Time: Fri Jun 21 03:57:13 2024  Windows 11 , 64 bit Build 22621 (10.0.22621.3672) elapsed time: 0.019387 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001dc6c90cf50):  JavaThread "Unknown thread" [_thread_in_vm, id=9456, stack(0x0000007bb7800000,0x0000007bb7900000)]
+
+Stack: [0x0000007bb7800000,0x0000007bb7900000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6877f9]
+V  [jvm.dll+0x8411aa]
+V  [jvm.dll+0x842e2e]
+V  [jvm.dll+0x843493]
+V  [jvm.dll+0x249fdf]
+V  [jvm.dll+0x6845c9]
+V  [jvm.dll+0x678e7a]
+V  [jvm.dll+0x30ab4b]
+V  [jvm.dll+0x311ff6]
+V  [jvm.dll+0x361a5e]
+V  [jvm.dll+0x361c8f]
+V  [jvm.dll+0x2e0978]
+V  [jvm.dll+0x2e18e4]
+V  [jvm.dll+0x811c71]
+V  [jvm.dll+0x36f7c8]
+V  [jvm.dll+0x7f05f6]
+V  [jvm.dll+0x3f398f]
+V  [jvm.dll+0x3f5541]
+C  [jli.dll+0x528f]
+C  [ucrtbase.dll+0x29333]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5af28]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffa06c3efd8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001dc6c9677b0 GCTaskThread "GC Thread#0" [stack: 0x0000007bb7900000,0x0000007bb7a00000] [id=6204]
+  0x000001dc6c978700 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000007bb7a00000,0x0000007bb7b00000] [id=6072]
+  0x000001dc6c979120 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000007bb7b00000,0x0000007bb7c00000] [id=5684]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa063f1547]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001dc6c907680] Heap_lock - owner thread: 0x000001dc6c90cf50
+
+Heap address: 0x0000000080000000, size: 2048 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000080000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, committed 0K, reserved 0K
+  class space    used 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x000001dc726e0000,0x000001dc72ae0000] _byte_map_base: 0x000001dc722e0000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000001dc6c967dd0, (CMBitMap*) 0x000001dc6c967e10
+ Prev Bits: [0x000001dc72ee0000, 0x000001dc74ee0000)
+ Next Bits: [0x000001dc74ee0000, 0x000001dc76ee0000)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.013 Loaded shared library C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7520d0000 - 0x00007ff7520da000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\java.exe
+0x00007ffa4ec30000 - 0x00007ffa4ee47000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffa4d3f0000 - 0x00007ffa4d4b4000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffa4c4a0000 - 0x00007ffa4c84c000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffa4c850000 - 0x00007ffa4c961000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffa3db40000 - 0x00007ffa3db57000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\jli.dll
+0x00007ffa4e4f0000 - 0x00007ffa4e69e000 	C:\Windows\System32\USER32.dll
+0x00007ffa4c470000 - 0x00007ffa4c496000 	C:\Windows\System32\win32u.dll
+0x00007ffa397f0000 - 0x00007ffa39a83000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ffa44580000 - 0x00007ffa4459b000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\VCRUNTIME140.dll
+0x00007ffa4d790000 - 0x00007ffa4d7b9000 	C:\Windows\System32\GDI32.dll
+0x00007ffa4e730000 - 0x00007ffa4e7d7000 	C:\Windows\System32\msvcrt.dll
+0x00007ffa4bfd0000 - 0x00007ffa4c0e9000 	C:\Windows\System32\gdi32full.dll
+0x00007ffa4c2e0000 - 0x00007ffa4c37a000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffa4e3f0000 - 0x00007ffa4e421000 	C:\Windows\System32\IMM32.DLL
+0x00007ffa491c0000 - 0x00007ffa491cc000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\vcruntime140_1.dll
+0x00007ffa40990000 - 0x00007ffa40a1d000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\msvcp140.dll
+0x00007ffa06100000 - 0x00007ffa06d83000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\server\jvm.dll
+0x00007ffa4d330000 - 0x00007ffa4d3e2000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffa4d4c0000 - 0x00007ffa4d56a000 	C:\Windows\System32\sechost.dll
+0x00007ffa4c380000 - 0x00007ffa4c3a8000 	C:\Windows\System32\bcrypt.dll
+0x00007ffa4e990000 - 0x00007ffa4eaa5000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffa4be20000 - 0x00007ffa4be6d000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffa27d90000 - 0x00007ffa27d99000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffa47cf0000 - 0x00007ffa47d24000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffa4e0a0000 - 0x00007ffa4e111000 	C:\Windows\System32\WS2_32.dll
+0x00007ffa445a0000 - 0x00007ffa445aa000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffa4be00000 - 0x00007ffa4be13000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffa4af90000 - 0x00007ffa4afa8000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffa491b0000 - 0x00007ffa491ba000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\jimage.dll
+0x00007ffa46ce0000 - 0x00007ffa46f12000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffa4ce20000 - 0x00007ffa4d1a8000 	C:\Windows\System32\combase.dll
+0x00007ffa4eb10000 - 0x00007ffa4ebe7000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffa2dc50000 - 0x00007ffa2dc82000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffa4c0f0000 - 0x00007ffa4c16b000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffa41580000 - 0x00007ffa415a5000 	C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955;C:\Program Files\JetBrains\PyCharm 2024.1.2\jbr\bin\server
+
+VM Arguments:
+jvm_args: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx2048m -Xms256m -Djdbc.classpath=C:\Program Files\JetBrains\PyCharm 2024.1.2\plugins\DatabaseTools\lib\jdbc-console.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Dfile.encoding=UTF-8 
+java_command: com.intellij.database.remote.RemoteJdbcServer org.postgresql.Driver
+java_class_path (initial): C:\Program Files\JetBrains\PyCharm 2024.1.2\lib\util_rt.jar;C:\Program Files\JetBrains\PyCharm 2024.1.2\lib\util-8.jar;C:\Program Files\JetBrains\PyCharm 2024.1.2\lib\groovy.jar;C:\Program Files\JetBrains\PyCharm 2024.1.2\plugins\DatabaseTools\lib\jdbc-console.jar;C:\Program Files\JetBrains\PyCharm 2024.1.2\plugins\grid-core-impl\lib\jdbc-console-types.jar;C:\Program Files\JetBrains\PyCharm 2024.1.2\lib\util.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2147483648                                {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 268435456                                 {product} {command line}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2147483648                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\risma\AppData\Local\Programs\Python\Python312\Scripts;C:\Program Files\Git\cmd;C:\Users\risma\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm 2024.1.2\bin;;C:\Users\risma\Downloads\bin;C:\Users\risma\Downloads\bin;C:\Users\risma\Downloads;C:\Program Files\JetBrains\PyCharm 2024.1.2\bin;C:\Users\risma\AppData\Local\Programs\Python\Python312\Scripts\bin;C:\Users\risma\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\bin;C:\Program Files\PostgreSQL\15\bin;
+USERNAME=risma
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+TMP=C:\Users\risma\AppData\Local\Temp
+TEMP=C:\Users\risma\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+Process memory usage:
+Resident Set Size: 11800K (0% of 6174988K total physical memory with 350876K free physical memory)
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3672)
+OS uptime: 3 days 19:24 hours
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 23 model 24 stepping 1 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt
+Processor Information for all 8 processors :
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+
+Memory: 4k page, system-wide physical 6030M (342M free)
+TotalPageFile size 8078M (AvailPageFile size 99M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 60M, peak: 316M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.11+1-b1207.24) for windows-amd64 JRE (17.0.11+1-b1207.24), built on 2024-05-15 by "builduser" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
